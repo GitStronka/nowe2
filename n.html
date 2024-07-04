@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mój Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .blog-post {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post h2 {
+            color: #007bff;
+        }
+        .comments {
+            margin-top: 30px;
+        }
+        .comment {
+            margin-bottom: 15px;
+        }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .comment-form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comment-form button {
+            padding: 10px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Witamy na Moim Blogu</h1>
+    </header>
+    <div class="container">
+        <div class="blog-post">
+            <h2>Mój Pierwszy Wpis</h2>
+            <p>Witajcie na moim nowym blogu! To jest mój pierwszy wpis. Będę tutaj dzielić się swoimi przemyśleniami i doświadczeniami. Zachęcam do zostawiania komentarzy!</p>
+            <div class="comments">
+                <h3>Komentarze:</h3>
+                <div id="comment-list">
+                    <!-- Komentarze będą tutaj dodawane -->
+                </div>
+                <div class="comment-form">
+                    <textarea id="comment" rows="4" placeholder="Napisz komentarz..."></textarea>
+                    <button onclick="addComment()">Dodaj Komentarz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addComment() {
+            var commentText = document.getElementById('comment').value;
+            if (commentText === '') {
+                alert('Komentarz nie może być pusty');
+                return;
+            }
+            var commentList = document.getElementById('comment-list');
+            var newComment = document.createElement('div');
+            newComment.className = 'comment';
+            newComment.textContent = commentText;
+            commentList.appendChild(newComment);
+            document.getElementById('comment').value = '';
+        }
+    </script>
+</body>
+</html>
